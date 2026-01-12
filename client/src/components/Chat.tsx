@@ -35,7 +35,7 @@ export const Chat: React.FC = () => {
     useEffect(() => {
         const fetchUser = async () => {
             try {
-                const res = await fetch('http://localhost:5000/api/messages/getChatMessages', {
+                const res = await fetch('https://chat-api-5ogk.onrender.com/api/messages/getChatMessages', {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify({ token, room: 'temp' })
@@ -70,7 +70,7 @@ export const Chat: React.FC = () => {
                     body.conversationId = activeChat.id;
                 }
 
-                const res = await fetch('http://localhost:5000/api/messages/getChatMessages', {
+                const res = await fetch('https://chat-api-5ogk.onrender.com/api/messages/getChatMessages', {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify(body)
@@ -92,7 +92,7 @@ export const Chat: React.FC = () => {
     useEffect(() => {
         if (!token || !currentUser) return;
 
-        const ws = new WebSocket(`ws://localhost:5000/ws?token=${token}`);
+        const ws = new WebSocket(`wss://chat-api-5ogk.onrender.com/ws?token=${token}`);
         wsRef.current = ws;
 
         ws.onopen = () => {

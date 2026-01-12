@@ -47,7 +47,7 @@ export const Sidebar: React.FC<SidebarProps> = ({ token, activeChat, onChatSelec
 
     const fetchChatList = async () => {
         try {
-            const res = await fetch('http://localhost:5000/api/messages/getChatList', {
+            const res = await fetch('https://chat-api-5ogk.onrender.com/api/messages/getChatList', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ token })
@@ -68,7 +68,7 @@ export const Sidebar: React.FC<SidebarProps> = ({ token, activeChat, onChatSelec
 
         setError('');
         try {
-            const res = await fetch('http://localhost:5000/api/rooms/create', {
+            const res = await fetch('https://chat-api-5ogk.onrender.com/api/rooms/create', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ token, name: roomName.trim() })
@@ -98,7 +98,7 @@ export const Sidebar: React.FC<SidebarProps> = ({ token, activeChat, onChatSelec
 
         setError('');
         try {
-            const res = await fetch('http://localhost:5000/api/rooms/join', {
+            const res = await fetch('https://chat-api-5ogk.onrender.com/api/rooms/join', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ token, roomNumber: roomNumber.trim() })
@@ -131,7 +131,7 @@ export const Sidebar: React.FC<SidebarProps> = ({ token, activeChat, onChatSelec
 
         setError('');
         try {
-            const res = await fetch('http://localhost:5000/api/conversations/start', {
+            const res = await fetch('https://chat-api-5ogk.onrender.com/api/conversations/start', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ token, recipientEmail: recipientEmail.trim() })
@@ -235,7 +235,7 @@ export const Sidebar: React.FC<SidebarProps> = ({ token, activeChat, onChatSelec
                             placeholder="Room name..."
                             value={roomName}
                             onChange={(e) => setRoomName(e.target.value)}
-                            
+
                         />
                         <div className="modal-buttons">
                             <button className="modal-btn cancel" onClick={() => {
@@ -269,7 +269,7 @@ export const Sidebar: React.FC<SidebarProps> = ({ token, activeChat, onChatSelec
                             placeholder="Room number..."
                             value={roomNumber}
                             onChange={(e) => setRoomNumber(e.target.value.toUpperCase())}
-                            
+
                         />
                         <div className="modal-buttons">
                             <button className="modal-btn cancel" onClick={() => {
@@ -303,7 +303,7 @@ export const Sidebar: React.FC<SidebarProps> = ({ token, activeChat, onChatSelec
                             placeholder="User's email..."
                             value={recipientEmail}
                             onChange={(e) => setRecipientEmail(e.target.value)}
-                            
+
                         />
                         <div className="modal-buttons">
                             <button className="modal-btn cancel" onClick={() => {
