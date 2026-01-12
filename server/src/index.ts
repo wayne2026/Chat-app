@@ -43,7 +43,7 @@ const startServer = async (): Promise<void> => {
     try {
         const mongoUri = process.env.MONGODB_URI || ' ';
         await mongoose.connect(mongoUri);
-        console.log('Connected to MongoDB');
+        console.log('Connected to MongoDB atlas');
 
         server.listen(PORT, () => {
             console.log(`Server running on http://localhost:${PORT}`);
